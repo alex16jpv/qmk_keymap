@@ -1,6 +1,7 @@
 {
   "version": 1,
   "notes": "",
+  "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
   "keyboard": "crkbd/rev1",
   "keymap": "alex16jpv",
   "layout": "LAYOUT_split_3x6_3",
@@ -47,7 +48,7 @@
       "KC_SPC",
       "KC_ENT",
       "LT(2,KC_ENT)",
-      "KC_LEFT_ALT"
+      "KC_LALT"
     ],
     [
       "KC_ESC",
@@ -71,9 +72,9 @@
       "KC_NO",
       "KC_UP",
       "KC_NO",
+      "KC_LBRC",
+      "KC_RBRC",
       "KC_NO",
-      "KC_LBRACKET",
-      "KC_RBRACKET",
       "KC_LCTL",
       "KC_NO",
       "KC_NO",
@@ -82,16 +83,16 @@
       "KC_NO",
       "KC_LEFT",
       "KC_DOWN",
-      "KC_RIGHT",
+      "KC_RGHT",
       "KC_NO",
-      "KC_MINUS",
-      "KC_EQUAL",
+      "KC_NO",
+      "KC_NO",
       "KC_LGUI",
       "KC_TRNS",
       "KC_SPC",
       "KC_ENT",
       "MO(3)",
-      "KC_RALT"
+      "KC_LALT"
     ],
     [
       "KC_ESC",
@@ -124,18 +125,18 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_UNDS",
-      "KC_PLUS",
       "KC_NO",
       "KC_NO",
-      "KC_PIPE",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
       "KC_TILD",
       "KC_LGUI",
       "MO(3)",
       "KC_SPC",
       "KC_ENT",
       "KC_TRNS",
-      "KC_RALT"
+      "KC_LALT"
     ],
     [
       "QK_BOOT",
@@ -148,8 +149,8 @@
       "KC_NO",
       "KC_NO",
       "KC_MPRV",
-      "KC_MPLY",
       "KC_MNXT",
+      "KC_MPLY",
       "RGB_TOG",
       "RGB_HUI",
       "RGB_SAI",
@@ -179,14 +180,14 @@
       "KC_SPC",
       "KC_ENT",
       "KC_TRNS",
-      "KC_RALT"
+      "KC_LALT"
     ],
     [
       "KC_NO",
       "KC_NO",
       "KC_F2",
       "KC_NO",
-      "KC_NO",
+      "KC_F4",
       "KC_NO",
       "KC_7",
       "KC_8",
@@ -223,34 +224,34 @@
       "KC_SPC",
       "KC_ENT",
       "KC_TRNS",
-      "KC_RALT"
+      "KC_LALT"
     ],
     [
-      "DYN_REC_START1",
+      "ANY(DM_REC1)",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "DYN_MACRO_PLAY1",
-      "KC_NO",
+      "ANY(DM_PLY1)",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_WH_D",
-      "DYN_REC_START2",
+      "KC_MPLY",
+      "ANY(DM_REC2)",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "DYN_MACRO_PLAY2",
-      "KC_NO",
+      "ANY(DM_PLY2)",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_WH_U",
-      "DYN_REC_STOP",
+      "KC_NO",
+      "ANY(DM_RSTP)",
       "KC_NO",
       "KC_NO",
       "KC_NO",
@@ -267,7 +268,8 @@
       "KC_SPC",
       "KC_ENT",
       "KC_TRNS",
-      "KC_RALT"
+      "KC_LALT"
     ]
-  ]
+  ],
+  "author": ""
 }
