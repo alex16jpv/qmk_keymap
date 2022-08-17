@@ -14,6 +14,8 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_ADJUST 8
 #define L_NUMS 16
 #define L_LAG 32
+#define L_GAMING 64
+#define L_GAMING_TWO 128
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
@@ -39,6 +41,10 @@ void oled_render_layer_state(void) {
             break;
         case L_LAG:
             oled_write_ln_P(PSTR("LAG"), false);
+            break;
+        case L_GAMING:
+        case L_GAMING|L_GAMING_TWO:
+            oled_write_ln_P(PSTR("Gaming"), false);
             break;
     }
 }
