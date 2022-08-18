@@ -10,7 +10,7 @@ jobs:
       matrix:
 # List of keymap json files to build
         file:
-        - alex16jpv.json
+        - alex16jpv.jsonc
 # End of json file list
 
     steps:
