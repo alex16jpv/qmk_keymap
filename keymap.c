@@ -116,56 +116,27 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
+void oled_render_layer_state(void) {
+    oled_write_ln_P(PSTR("Wubba Lubba Dub Dub!"), false);
+}
+
 void render_prompt(void) {
     bool blink = (timer_read() % 1000) < 500;
 
     if (layer_state_is(_LOWER)) {
-        oled_write_ln_P(blink ? PSTR("> lower_") : PSTR("> lower "), false);
+        oled_write_ln_P(blink ? PSTR("> Lower_") : PSTR("> Lower "), false);
     } else if (layer_state_is(_RAISE)) {
-        oled_write_ln_P(blink ? PSTR("> raise_") : PSTR("> raise "), false);
+        oled_write_ln_P(blink ? PSTR("> Raise_") : PSTR("> Raise "), false);
     } else if (layer_state_is(_ADJUST)) {
-        oled_write_ln_P(blink ? PSTR("> adjust_") : PSTR("> adjust "), false);
+        oled_write_ln_P(blink ? PSTR("> Adjust_") : PSTR("> Adjust "), false);
     } else if (layer_state_is(_MACRO)) {
-        oled_write_ln_P(blink ? PSTR("> macro_") : PSTR("> macro "), false);
+        oled_write_ln_P(blink ? PSTR("> Macro_") : PSTR("> Macro "), false);
     } else if (layer_state_is(_SPLIT_G)) {
-        oled_write_ln_P(blink ? PSTR("> lag_") : PSTR("> lag "), false);
+        oled_write_ln_P(blink ? PSTR("> Play_") : PSTR("> Play "), false);
     } else {
         oled_write_ln_P(blink ? PSTR("> _  ") : PSTR(">    "), false);
     }
 };
-
-void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
-
-    if (layer_state_is(_QWERTY)) {
-        oled_write_ln_P(PSTR("Default"), false);
-    } else if (layer_state_is(_LOWER)) {
-        oled_write_ln_P(PSTR("Lower"), false);
-    } else if (layer_state_is(_RAISE)) {
-        oled_write_ln_P(PSTR("Raise"), false);
-    } else if (layer_state_is(_ADJUST)) {
-        oled_write_ln_P(PSTR("Adjust"), false);
-    } else if (layer_state_is(_ADJUST_LOWER)) {
-        oled_write_ln_P(PSTR("Adjust"), false);
-    } else if (layer_state_is(_MACRO)) {
-        oled_write_ln_P(PSTR("Macro"), false);
-    } else if (layer_state_is(_SPLIT_G)) {
-        oled_write_ln_P(PSTR("LAG"), false);
-    } else if (layer_state_is(_SPLIT_G_LOWER)) {
-        oled_write_ln_P(PSTR("LAG"), false);
-    }
-}
-
-
-char keylog_str[24] = {};
-
-const char code_to_name[60] = {
-    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
-    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-    'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\',
-    '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
 
 void oled_render_logo(void) {
     static const char PROGMEM crkbd_logo[] = {
