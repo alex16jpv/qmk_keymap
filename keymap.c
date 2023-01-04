@@ -8,13 +8,14 @@ enum layers {
     _ADJUST,
     _ADJUST_LOWER,
     _MACRO,
-    _SPLIT_G,
+    _SPLIT_PLAY,
     _SPLIT_G_LOWER,
 };
 
 enum custom_keycodes {
     SCREENSHOT = SAFE_RANGE,
     FULL_SCREENSHOT,
+    LALT_LSFT,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -22,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //,-----------------------------------------------------------------.           LAYER #0           ,-----------------------------------------------------------------.
              KC_TAB,      KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,                                     KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,   KC_BSPC,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
-            KC_LSFT,      KC_A,      KC_S,      KC_D,      KC_F,      KC_G,                                     KC_H,      KC_J,      KC_K,      KC_L,   KC_SCLN,   KC_QUOT,
+            KC_LSFT,      KC_A,      KC_S,      KC_D,      KC_F,      KC_G,                                     KC_H,      KC_J,      KC_K,      KC_L,   KC_SCLN,RSFT_T(KC_QUOT),
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
             KC_LCTL,      KC_Z,      KC_X,      KC_C,       KC_V,     KC_B,                                     KC_N,      KC_M,   KC_COMM,    KC_DOT,   KC_SLSH,     MO(5),
       //|----------+----------+----------+----------+----------+----------+----------|        |----------+----------+----------+----------+----------+----------+----------|
@@ -77,27 +78,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //,-----------------------------------------------------------------.           LAYER #5           ,-----------------------------------------------------------------.
               KC_NO,     KC_NO,    KC_NO,FULL_SCREENSHOT,SCREENSHOT, KC_NO,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,   KC_WH_D,   KC_MPLY,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
-              KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,   KC_WH_U,     KC_NO,
+          LALT_LSFT,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,   KC_WH_U,     KC_NO,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
               KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,   KC_TRNS,
       //|----------+----------+----------+----------+----------+----------+----------|        |----------+----------+----------+----------+----------+----------+----------|
                                                         KC_LGUI,   KC_TRNS,    KC_SPC,             KC_ENT,   KC_TRNS,   KC_LALT
                                                   //`--------------------------------'        `--------------------------------'
   ),
-  [_SPLIT_G] = LAYOUT_split_3x6_3(
+  [_SPLIT_PLAY] = LAYOUT_split_3x6_3(
       //,-----------------------------------------------------------------.           LAYER #6           ,-----------------------------------------------------------------.
-             KC_ESC,      KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,
+             KC_ESC,      KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,                                     KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,   KC_BSPC,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
-            KC_LSFT,      KC_A,      KC_S,      KC_D,      KC_F,      KC_G,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,
+            KC_LSFT,      KC_A,      KC_S,      KC_D,      KC_F,      KC_G,                                     KC_H,      KC_J,      KC_K,      KC_L,   KC_SCLN,   KC_QUOT,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
-            KC_LCTL,      KC_Z,      KC_X,      KC_C,      KC_V,      KC_M,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,
+            KC_LCTL,      KC_Z,      KC_X,      KC_C,      KC_V,      KC_B,                                     KC_N,      KC_M,   KC_COMM,    KC_DOT,   KC_SLSH,     MO(5),
       //|----------+----------+----------+----------+----------+----------+----------|        |----------+----------+----------+----------+----------+----------+----------|
-                                                          MO(7),    KC_SPC,    KC_ENT,              KC_NO,     KC_NO,     KC_NO
+                                                          MO(7),    KC_SPC,    KC_ENT,             KC_ENT,     KC_NO,   KC_MPLY
                                                   //`--------------------------------'        `--------------------------------'
   ),
   [_SPLIT_G_LOWER] = LAYOUT_split_3x6_3(
       //,-----------------------------------------------------------------.           LAYER #7           ,-----------------------------------------------------------------.
-             KC_TAB,     KC_NO,     KC_UP,     KC_NO,     KC_NO,     TG(6),                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,
+             KC_TAB,     KC_NO,     KC_UP,     KC_NO,     KC_NO,     TG(6),                                   KC_F13,    KC_F14,    KC_F15,    KC_F16,    KC_F17,    KC_F18,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
              KC_TAB,   KC_LEFT,   KC_DOWN,   KC_RGHT,     KC_NO,     KC_NO,                                    KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,
       //|----------+----------+----------+----------+----------+----------|                              |----------+----------+----------+----------+----------+----------|
@@ -131,7 +132,7 @@ void render_prompt(void) {
         oled_write_ln_P(blink ? PSTR("> Adjust_") : PSTR("> Adjust "), false);
     } else if (layer_state_is(_MACRO)) {
         oled_write_ln_P(blink ? PSTR("> Macro_") : PSTR("> Macro "), false);
-    } else if (layer_state_is(_SPLIT_G)) {
+    } else if (layer_state_is(_SPLIT_PLAY)) {
         oled_write_ln_P(blink ? PSTR("> Play_") : PSTR("> Play "), false);
     } else {
         oled_write_ln_P(blink ? PSTR("> _  ") : PSTR(">    "), false);
@@ -173,6 +174,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_DOWN(X_LGUI) SS_DOWN(X_LSFT) "3");
             } else {
                 SEND_STRING(SS_UP(X_LSFT) SS_UP(X_LGUI));
+            }
+            break;
+        case LALT_LSFT:
+            if (record->event.pressed) {
+                SEND_STRING(SS_DOWN(X_LALT) SS_DOWN(X_LSFT));
+            } else {
+                SEND_STRING(SS_UP(X_LALT) SS_UP(X_LSFT));
             }
             break;
     }
