@@ -1,1 +1,2 @@
-qmk compile alex16jpv.json
+## Compile QMK firmware
+`qmk compile alex16jpv.json`
